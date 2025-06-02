@@ -56,6 +56,18 @@
                 </div>
             </div>
             
+            {{-- Description Section --}}
+            <div class="mb-8">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                    <i class="fas fa-info-circle mr-2 text-blue-500"></i>
+                    Description
+                </h2>
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <p class="text-gray-700 leading-relaxed whitespace-pre-line">{{ $internship->description }}</p>
+                </div>
+            </div>
+
+            
         </div>
     </div>
 @endsection
