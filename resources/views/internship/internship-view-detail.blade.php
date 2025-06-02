@@ -67,7 +67,43 @@
                 </div>
             </div>
 
-            
+            {{-- Requirements --}}
+            <div class="mb-8">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                    <i class="fas fa-list-check mr-2 text-green-500"></i>
+                    Requirements
+                </h2>
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <div class="text-gray-700 leading-relaxed whitespace-pre-line">{{ $internship->requirements }}</div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+            {{-- Deadline Details Card --}}
+            <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-6">
+                <h3 class="text-lg font-semibold text-blue-800 mb-3 flex items-center">
+                    <i class="fas fa-calendar-check mr-2"></i>
+                    Application Deadline
+                </h3>
+                <div class="space-y-2">
+                    <div class="flex justify-between items-center">
+                        <span class="text-blue-700">Date:</span>
+                        <span class="font-medium text-blue-800">{{ $deadline->format('M j, Y') }}</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-blue-700">Time Left:</span>
+                        <span class="font-medium text-blue-800">{{ $daysLeft }} days</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-blue-700">Status:</span>
+                        @if($isUrgent)
+                            <span class="text-red-600 font-medium">Urgent</span>
+                        @else
+                            <span class="text-green-600 font-medium">On Track</span>
+                        @endif
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection
