@@ -25,6 +25,37 @@
                     </div>
                 </div>
             </div>
+        
+
+        {{-- Deadline Section --}}
+            <div class="text-right">
+                @php
+                    $deadline = \Carbon\Carbon::parse($internship->deadline);
+                    $daysLeft = round($deadline->diffInDays(now(), true));
+                    $isUrgent = $daysLeft <= 7;
+                @endphp
+                
+                @if($isUrgent)
+                    <div class="bg-red-100 text-red-700 px-4 py-2 rounded-full text-sm font-medium mb-2">
+                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                        {{ $daysLeft }} days left
+                    </div>
+                @else
+                    <div class="bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-medium mb-2">
+                        <i class="fas fa-clock mr-2"></i>
+                        {{ $daysLeft }} days left
+                    </div>
+                @endif
+                
+                <div class="text-gray-500 text-sm">
+                    <i class="fas fa-calendar-alt mr-1"></i>
+                    Due: {{ $deadline->format('F j, Y') }}
+                </div>
+                <div class="text-gray-400 text-xs mt-1">
+                    {{ $deadline->format('l, g:i A') }}
+                </div>
+            </div>
+            
         </div>
     </div>
 @endsection
