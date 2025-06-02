@@ -121,13 +121,7 @@
                             <i class="fas fa-plus mr-2"></i>Edit Internship
                         </button>
                         
-                        <button 
-                            type="button"
-                            onclick="resetForm()"
-                            class="flex-1 bg-gray-100 text-gray-700 font-semibold py-3 px-6 rounded-lg hover:bg-gray-200 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
-                        >
-                            <i class="fas fa-undo mr-2"></i>Reset Form
-                        </button>
+                        
                     </div>
                 </form>
 
@@ -169,11 +163,7 @@
 
     <script>
         // Reset form function
-        function resetForm() {
-            if (confirm('Are you sure you want to reset the form? All entered data will be lost.')) {
-                document.querySelector('form').reset();
-            }
-        }
+ 
 
         
     </script>

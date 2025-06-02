@@ -116,7 +116,7 @@
                         </div>
                         <span class="ml-3 text-2xl font-bold">inTel-U</span>
                     </div>
-                    <p class="text-gray-400 mb-4">Empowering students with comprehensive academic resources and opportunities.</p>
+                    <p class="text-gray-400 mb-4">Making students life easier with academic resources and opportunities.</p>
                 </div>
                 
             </div>

@@ -6,8 +6,8 @@
             <div class="bg-white border border-gray-200 rounded-xl shadow hover:shadow-md p-8">
                 <!-- Header Section -->
                 <div class="text-center mb-8">
-                    <div class="inline-flex items-center justify-center w-16 h-16 bg-purple-100 rounded-full mb-4">
-                        <i class="fas fa-briefcase text-2xl text-purple-600"></i>
+                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4">
+                        <i class="fas fa-briefcase text-2xl"></i>
                     </div>
                     <h1 class="text-3xl font-bold text-blue-800 mb-2">Create Internship</h1>
                     <p class="text-gray-600">Post a new internship opportunity for students</p>
@@ -124,13 +124,7 @@
                             <i class="fas fa-plus mr-2"></i>Create Internship
                         </button>
                         
-                        <button 
-                            type="button"
-                            onclick="resetForm()"
-                            class="flex-1 bg-gray-100 text-gray-700 font-semibold py-3 px-6 rounded-lg hover:bg-gray-200 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
-                        >
-                            <i class="fas fa-undo mr-2"></i>Reset Form
-                        </button>
+                        
                     </div>
                 </form>
 
@@ -151,15 +145,7 @@
                 </div>
             </div>
 
-            <!-- Help Card -->
-            <div class="bg-white border border-gray-200 rounded-xl shadow hover:shadow-md p-6 mt-6">
-                <div class="flex items-start">
-                    <div class="flex-shrink-0 w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center mr-4">
-                        <i class="fas fa-question-circle text-yellow-600"></i>
-                    </div>
-                    
-                </div>
-            </div>
+            
         </div>
     </div>
 
@@ -179,13 +165,6 @@
     </div>
 
     <script>
-        // Reset form function
-        function resetForm() {
-            if (confirm('Are you sure you want to reset the form? All entered data will be lost.')) {
-                document.querySelector('form').reset();
-            }
-        }
-
 
         // Form validation and submission
         document.querySelector('form').addEventListener('submit', function(e) {
