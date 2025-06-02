@@ -68,10 +68,7 @@
                             class="w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-vertical"
                             placeholder="Describe the internship role, responsibilities, and what the intern will learn..."
                         >{{ old('description') }}</textarea>
-                        <p class="text-xs text-gray-500 mt-1">
-                            <i class="fas fa-info-circle mr-1"></i>
-                            Include key responsibilities, learning objectives, and work environment details
-                        </p>
+                        
                         @error('description')
                             <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                         @enderror
@@ -90,10 +87,7 @@
                             class="w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-vertical"
                             placeholder="List the required skills, qualifications, and experience..."
                         >{{ old('requirements') }}</textarea>
-                        <p class="text-xs text-gray-500 mt-1">
-                            <i class="fas fa-lightbulb mr-1"></i>
-                            Separate each requirement with a new line for better readability
-                        </p>
+                    
                         @error('requirements')
                             <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                         @enderror
@@ -115,10 +109,7 @@
                                 value="{{ old('deadline') }}"
                             >
                         </div>
-                        <p class="text-xs text-gray-500 mt-1">
-                            <i class="fas fa-clock mr-1"></i>
-                            Set a realistic deadline for students to submit their applications
-                        </p>
+                        
                         @error('deadline')
                             <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                         @enderror
@@ -166,16 +157,7 @@
                     <div class="flex-shrink-0 w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center mr-4">
                         <i class="fas fa-question-circle text-yellow-600"></i>
                     </div>
-                    <div>
-                        <h3 class="text-lg font-semibold text-blue-800 mb-2">Tips for Creating Great Internship Posts</h3>
-                        <ul class="text-gray-600 text-sm space-y-1">
-                            <li>• Write a clear, specific job title that reflects the actual role</li>
-                            <li>• Include learning objectives and growth opportunities</li>
-                            <li>• Be specific about required skills and nice-to-have qualifications</li>
-                            <li>• Set realistic deadlines that give students time to apply</li>
-                            <li>• Mention any compensation, benefits, or perks offered</li>
-                        </ul>
-                    </div>
+                    
                 </div>
             </div>
         </div>
