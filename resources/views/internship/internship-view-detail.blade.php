@@ -104,6 +104,22 @@
                     </div>
                 </div>
             </div>
+            
+            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg p-6">
+                <h3 class="text-lg font-semibold text-gray-800 mb-3 flex items-center">
+                    <i class="fas fa-building mr-2"></i>
+                    Company Information
+                </h3>
+                <div class="space-y-2">
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-700">Company:</span>
+                        <span class="font-medium text-gray-800">{{ $internship->company_name }}</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-700">Position:</span>
+                        <span class="font-medium text-gray-800">{{ $internship->title }}</span>
+                    </div>
+                </div>
         </div>
     </div>
 @endsection
