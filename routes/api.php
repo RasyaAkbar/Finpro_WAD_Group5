@@ -7,4 +7,4 @@ use App\Http\Controllers\Api\APICampusActivityController;
 //     return $request->user();
 // })->middleware('auth:sanctum');
 
-Route::get('/campus-activities', [APICampusActivityController::class, 'indexapi']);
+Route::get('/campusactivities', [APICampusActivityController::class, 'indexapi']);

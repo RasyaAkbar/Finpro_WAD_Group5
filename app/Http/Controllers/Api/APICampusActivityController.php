@@ -9,7 +9,7 @@ use App\Http\Resources\CampusActivityResource;
 
 class APICampusActivityController extends Controller
 {
-    public function index()
+    public function indexapi()
     {
         $activities = CampusActivity::latest()->paginate(5); 
 
