@@ -7,7 +7,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Internship\InternshipController;
 
 use App\Http\Controllers\Student\ScholarshipController;
-use App\Http\Controllers\CompetitionController;
+use App\Http\Controllers\competition\CompetitionController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -38,7 +38,6 @@ Route::middleware(['auth'])->group(function () {
     // Student routes
     Route::prefix('student')->name('student.')->group(function () {
         Route::get('/internships', [InternshipController::class, 'showInternshipPage'])->name('internships');
-        Route::get('/internships', [InternshipController::class, 'showInternshipPage'])->name('internships.create');
 
     });
     

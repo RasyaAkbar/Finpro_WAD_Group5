@@ -96,7 +96,7 @@
                     </div>
                     <h3 class="text-lg font-semibold text-blue-700 mb-3">Competition Information</h3>
                     <p class="text-gray-600 text-sm mb-4">Participate in academic competitions and showcase your skills on various platforms.</p>
-                    <a href="#" class="text-yellow-600 font-semibold hover:text-yellow-700 text-sm transition-colors">Compete →</a>
+                    <a href="{{ route('competitions.index') }}"class="text-yellow-600 font-semibold hover:text-yellow-700 text-sm transition-colors">Compete →</a>
                 </div>
 
                 <!-- Search & Filter -->

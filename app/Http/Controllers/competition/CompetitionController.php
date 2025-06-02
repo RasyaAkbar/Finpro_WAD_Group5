@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Competition;
 
 use App\Models\Competition;
 use Illuminate\Http\Request;
-
+use App\Http\Controllers\Controller;
 class CompetitionController extends Controller
 {
     public function index(Request $request)
