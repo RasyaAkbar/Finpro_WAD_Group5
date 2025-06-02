@@ -29,7 +29,11 @@ Route::middleware(['auth'])->group(function () {
     // Student routes
     Route::prefix('student')->name('student.')->group(function () {
         Route::get('/internships', [InternshipController::class, 'showInternshipPage'])->name('internships');
-        Route::get('/internships', [InternshipController::class, 'showInternshipPage'])->name('internships.create');
+        Route::get('/internships/create', [InternshipController::class, 'createInternshipPage'])->name('internships.create');
+        Route::get('/internships/{internship}/edit', [InternshipController::class, 'editInternshipPage'])->name('internships.edit');
+        Route::put('/internships/{internship}/edit', [InternshipController::class, 'update'])->name('internships.update');
+        Route::delete('/internships/{internship}', [InternshipController::class, 'destroy'])->name('internships.destroy');
+        Route::post('/internships/', [InternshipController::class, 'store'])->name('internships.store');
 
     });
     
