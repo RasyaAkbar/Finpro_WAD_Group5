@@ -9,6 +9,7 @@ class CompetitionController extends Controller
 {
     public function index(Request $request)
     {
+        
         $query = Competition::query();
 
         if ($request->filled('search')) {
