@@ -120,7 +120,7 @@
                             </div>
                             
                             <div class="flex space-x-2">
-                                <a href="/" 
+                                <a href="{{ route('student.internships.show', $internship) }}" 
                                 class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors">
                                     <i class="fas fa-eye mr-1"></i>
                                     View Details

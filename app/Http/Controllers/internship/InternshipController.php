@@ -16,6 +16,11 @@ class InternshipController extends Controller
         return view('internship.internship-view', compact('internships'));
     }
 
+    public function showDetailInternshipPage(Internship $internship)
+    {
+        return view('internship.internship-view-detail', compact('internship'));
+    }
+
     public function createInternshipPage()
     {
         
