@@ -32,6 +32,15 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/internships', [InternshipController::class, 'showInternshipPage'])->name('internships');
 
 
+        Route::get('/internships/create', [InternshipController::class, 'createInternshipPage'])->name('internships.create');
+        Route::get('/internships/{internship}', [InternshipController::class, 'showDetailInternshipPage'])->name('internships.show');
+        Route::get('/internships/{internship}/edit', [InternshipController::class, 'editInternshipPage'])->name('internships.edit');
+        Route::put('/internships/{internship}/edit', [InternshipController::class, 'update'])->name('internships.update');
+        Route::delete('/internships/{internship}', [InternshipController::class, 'destroy'])->name('internships.destroy');
+        Route::post('/internships/', [InternshipController::class, 'store'])->name('internships.store');
+
+
+
         Route::get('/campus-activities', [CampusActivityController::class, 'index'])->name('campus-activities');
         Route::get('/campus-activities/create', [CampusActivityController::class, 'create'])->name('campus-activities-create');
         Route::post('/campus-activities/store', [CampusActivityController::class, 'store'])->name('campus-activities-store');
