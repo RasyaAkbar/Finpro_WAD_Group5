@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 class CompetitionController extends Controller
 {
+
+    //Display a listing of the competitions
     public function index(Request $request)
     {
         
@@ -21,11 +23,14 @@ class CompetitionController extends Controller
         return view('competitions.index', compact('competitions'));
     }
 
+
+    //Show the form for creating a new competition
     public function create()
     {
         return view('competitions.create') ;
     }
 
+    //Store a newly created competition in the database.
     public function store(Request $request)
     {
         $request->validate([
@@ -43,6 +48,7 @@ class CompetitionController extends Controller
         return redirect()->route('admin.competitions.index')->with('success', 'Competition created!');
     }
 
+    //Show the form for editing the specified competition.
     public function edit(Competition $competition)
     {
         return view('competitions.edit', compact('competition'));
@@ -65,6 +71,7 @@ class CompetitionController extends Controller
         return redirect()->route('admin.competitions.index')->with('success', 'Updated successfully!');
     }
 
+    //Remove the specified competition from the database.
     public function destroy(Competition $competition)
     {
         $competition->delete();
