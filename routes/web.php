@@ -44,7 +44,7 @@ Route::middleware(['auth'])->group(function () {
     // Admin routes
     Route::prefix('admin')->name('admin.')->middleware('role:admin')->group(function () {
     // Competitions routes
-        // Show the list of competitions (admin view)
+        // Show the list of competitions routes (admin view)
         Route::get('/competitions', [CompetitionController::class, 'index'])->name('competitions.index');
         Route::get('/competitions/{competition}/edit', [CompetitionController::class, 'edit'])->name('competitions.edit');
         Route::put('/competitions/{competition}', [CompetitionController::class, 'update'])->name('competitions.update');

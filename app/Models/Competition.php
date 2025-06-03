@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Competition extends Model
 {
-    //
+    // Enable mass-assignment for the fields in the array
      protected $fillable = [
         'title',
         'description',
