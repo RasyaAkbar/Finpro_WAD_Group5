@@ -49,7 +49,7 @@
                     </div>
 
                     <div class="mt-4 flex flex-wrap gap-2">
-                        <a href="{{ route('competitions.show', $competition) }}"
+                        <a href="{{ route('admin.competitions.show', $competition) }}"
                            class="text-xs bg-gray-100 hover:bg-gray-200 text-gray-800 px-3 py-1 rounded">View</a>
                         @auth
                             @if(auth()->user()->role === 'admin')
