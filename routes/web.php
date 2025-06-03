@@ -7,7 +7,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Internship\InternshipController;
 
 use App\Http\Controllers\Student\ScholarshipController;
-
+use App\Http\Controllers\Culinary\CulinaryController;
 
 Route::get('/', function () {
     return view('welcome');
