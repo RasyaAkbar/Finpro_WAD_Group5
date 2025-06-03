@@ -15,7 +15,6 @@ class Competition extends Model
         'start_date',
         'end_date',
         'link',
-            
         
     ];
         public function user() {

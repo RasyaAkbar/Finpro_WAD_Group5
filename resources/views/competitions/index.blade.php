@@ -9,6 +9,7 @@
             <p class="text-gray-600">Discover academic competitions</p>
         </div>
 
+        <!-- Filter/Search Form -->
        <form method="GET" class="mb-6 flex flex-col md:flex-row gap-4 justify-between items-center">
             <input type="text" name="search" placeholder="Search competitions..."
                 value="{{ request('search') }}"
@@ -29,12 +30,14 @@
             @endif
         @endauth
 
+         <!-- Success Message -->
         @if(session('success'))
             <div class="bg-green-100 border border-green-300 text-green-800 px-4 py-2 rounded mb-4 shadow-sm">
                 {{ session('success') }}
             </div>
         @endif
 
+        <!-- Competition List -->
         <div class="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             @forelse($competitions as $competition)
                 <div class="bg-white border border-gray-200 rounded-xl shadow hover:shadow-md transition-all p-4 flex flex-col justify-between">
