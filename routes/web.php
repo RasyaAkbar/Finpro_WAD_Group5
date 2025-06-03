@@ -10,9 +10,11 @@ use App\Http\Controllers\HomeController;
 
 // Home page
 use App\Http\Controllers\Student\ScholarshipController;
+use App\Http\Controllers\Culinary\CulinaryController;
 
 use App\Http\Controllers\competition\CompetitionController;
 use App\Http\Controllers\CampusActivityController;
+
 
 
 
@@ -51,12 +53,29 @@ Route::middleware(['auth'])->group(function () {
         Route::put('/internships/{internship}/edit', [InternshipController::class, 'update'])->name('internships.update');
         Route::delete('/internships/{internship}', [InternshipController::class, 'destroy'])->name('internships.destroy');
         Route::post('/internships/', [InternshipController::class, 'store'])->name('internships.store');
+        #Route::get('/culinary', [CulinaryController::class, 'showCulinary'])->name('culinary');
+    });
+
+
+    Route::prefix('cul')->group(function(){
+        Route::get('/culinary',[CulinaryController::class,'index'])->name('culinaryAdmin.indexCulinary');
+        Route::get('/culinary/create',[CulinaryController::class,'create'])->name('culinaryAdmin.createCulinary');
+        Route::post('/culinary',[CulinaryController::class,'store'])->name('culinaryAdmin.storeCulinary');
+        Route::get('/culinary/{culinar}/edit',[CulinaryController::class,'edit'])->name('culinaryAdmin.editCulinary');
+        Route::put('/culinary/{culinar}',[CulinaryController::class,'update'])->name('culinaryAdmin.updateCulinary');
+        Route::delete('/culinary/{culinar}',[CulinaryController::class,'destroy'])->name('culinaryAdmin.destroyCulinary');
+ 
+    });
+    
+    // Admin routes
+    Route::prefix('admin')->name('admin.')->middleware('role:admin')->group(function () {
 
         // Show all competitions
         Route::get('/competitions', [CompetitionController::class, 'index'])->name('competitions.index');
 
         // Show the form to create a new competition
         
+
 
         // Show a single competition by ID
         Route::get('/competitions/{competition}', [CompetitionController::class, 'show'])->name('competitions.show');

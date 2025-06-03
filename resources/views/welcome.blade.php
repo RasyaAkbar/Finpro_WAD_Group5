@@ -84,7 +84,7 @@
                     </div>
                     <h3 class="text-lg font-semibold text-blue-700 mb-3">Local Culinary</h3>
                     <p class="text-gray-600 text-sm mb-4">Discover local restaurants, cafes, and dining options around your campus area.</p>
-                    <a href="#" class="text-red-600 font-semibold hover:text-red-700 text-sm transition-colors">Discover →</a>
+                    <a href="{{ route('culinaryAdmin.indexCulinary') }}" class="text-red-600 font-semibold hover:text-red-700 text-sm transition-colors">Discover →</a>
                 </div>
 
                 <!-- Competition Information -->
