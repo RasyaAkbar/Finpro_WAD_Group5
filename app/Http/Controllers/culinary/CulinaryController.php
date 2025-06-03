@@ -56,15 +56,15 @@ class CulinaryController extends Controller
         $request->validate([
             'title' => 'required',
             'content'=> 'required',
-            'image' => 'nullable|image|mimes:jpeg,jpg'
+            #'image' => 'nullable|image|mimes:jpeg,jpg'
         ]);
 
-        $culinaryData = $request->only('title','content','image');
+        $culinaryData = $request->only('title','content');
 
-        if ($request->hasFile('image')) {
+        /*if ($request->hasFile('image')) {
             if ($culinary->image) {
                 Storage::delete('public/' . $culinary->image);
-            }
+            }*/
 
             $imagePath = $request->file('image')->store('culinary','public');
             $culinaryData['image'] = $imagePath;
