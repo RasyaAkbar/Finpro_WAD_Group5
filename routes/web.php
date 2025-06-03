@@ -1,11 +1,14 @@
 <?php
 
+use App\Http\Controllers\ScholarshipInformationController;
 use Illuminate\Support\Facades\Route;
-
-
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Internship\InternshipController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\HomeController;
 
+
+// Home page
 use App\Http\Controllers\Student\ScholarshipController;
 
 use App\Http\Controllers\competition\CompetitionController;
@@ -13,20 +16,44 @@ use App\Http\Controllers\CampusActivityController;
 
 
 
+
 Route::get('/', function () {
     return view('welcome');
-})->name("home");
+})->name('home');
 
+// Dashboard
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+// Authenticated user profile
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+// Authentication routes
 Route::middleware('guest')->group(function () {
-    // Login routes
     Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
     Route::post('/login', [AuthController::class, 'login'])->name('login.post');
-    
-    // Register routes
     Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
     Route::post('/register', [AuthController::class, 'register'])->name('register.post');
-    
 });
+
+
+// Student routes (authenticated)
+Route::middleware(['auth'])->prefix('student')->name('student.')->group(function () {
+    Route::get('/campus-activities', [DashboardController::class, 'campusActivities'])->name('campus-activities');
+    Route::get('/internships', [InternshipController::class, 'showInternshipPage'])->name('internships');
+    Route::get('/local-culinary', [DashboardController::class, 'localCulinary'])->name('local-culinary');
+    Route::get('/competitions', [DashboardController::class, 'competitions'])->name('competitions');
+    Route::get('/search', [DashboardController::class, 'search'])->name('search');
+});
+
+// Admin-only routes
+Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
+
 
 Route::middleware(['auth'])->group(function () {
 
@@ -60,9 +87,18 @@ Route::middleware(['auth'])->group(function () {
         Route::put('/campus-activities/{id}', [CampusActivityController::class, 'update'])->name('campus-activities-update');
         Route::delete('/campus-activities/{id}', [CampusActivityController::class, 'destroy'])->name('campus-activities-destroy');
     });
+
     
-    // Admin routes
-    Route::prefix('admin')->name('admin.')->middleware('role:admin')->group(function () {
+    // Full CRUD for scholarships (admin only)
+    Route::resource('scholarships', ScholarshipInformationController::class)->except(['index', 'show']);
+});
+
+
+// Public scholarship routes (accessible to all)
+Route::resource('scholarships', ScholarshipInformationController::class)->only(['index', 'show']);
+
+// Logout
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
     // Competitions routes
         // Show the list of competitions (admin view)
@@ -90,3 +126,4 @@ Route::middleware('auth:sanctum')->prefix('api')->group(function () {
     Route::put('/campus-activities/{id}', [CampusActivityController::class, 'apiUpdate']);
     Route::delete('/campus-activities/{id}', [CampusActivityController::class, 'apiDestroy']);
 });
+
