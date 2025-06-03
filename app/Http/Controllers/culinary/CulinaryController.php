@@ -33,14 +33,14 @@ class CulinaryController extends Controller
             'image' => 'nullable|image|mimes:jpeg,jpg'
         ]);
 
-        $culinaryData = $request->only('title','detail');
+        $culinaryData = $request->only('image','title','detail');
 
         if ($request->hasfile('image')) {
             $imagePath = $request->file('image')->store('culinaries','public');
             $culinaryData['image'] = $imagePath;
         }
 
-        auth()->user()->culinary()->create($culinaryData);
+        Culinary::create($culinaryData);
 
         session()->flash('success','Culinary view created');
 
@@ -59,7 +59,7 @@ class CulinaryController extends Controller
             'image' => 'nullable|image|mimes:jpeg,jpg'
         ]);
 
-        $culinaryData = $request->only('title','detail');
+        $culinaryData = $request->only('image','title','detail');
 
         if ($request->hasFile('image')) {
             if ($culinary->image) {

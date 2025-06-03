@@ -38,7 +38,7 @@ Route::middleware(['auth'])->group(function () {
         #Route::get('/culinary', [CulinaryController::class, 'showCulinary'])->name('culinary');
     });
 
-    Route::prefix('cul')->name('culi.')->group(function(){
+    Route::prefix('cul')->group(function(){
         Route::get('/culinary',[CulinaryController::class,'index'])->name('culinaryAdmin.indexCulinary');
         Route::get('/culinary/create',[CulinaryController::class,'create'])->name('culinaryAdmin.createCulinary');
         Route::post('/culinary',[CulinaryController::class,'store'])->name('culinaryAdmin.storeCulinary');
