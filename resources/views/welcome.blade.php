@@ -60,7 +60,7 @@
                     </div>
                     <h3 class="text-lg font-semibold text-blue-700 mb-3">Campus Activities</h3>
                     <p class="text-gray-600 text-sm mb-4">Stay updated with campus events, clubs, and activities to enrich your student experience.</p>
-                    <a href="#" class="text-green-600 font-semibold hover:text-green-700 text-sm transition-colors">Explore →</a>
+                    <a href="{{ route('student.campus-activities') }}" class="text-green-600 font-semibold hover:text-green-700 text-sm transition-colors">Explore →</a>
                 </div>
 
                 <!-- Internship Opportunities -->
