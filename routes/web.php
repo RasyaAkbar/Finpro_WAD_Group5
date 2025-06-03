@@ -35,7 +35,7 @@ Route::middleware(['auth'])->group(function () {
         Route::put('/internships/{internship}/edit', [InternshipController::class, 'update'])->name('internships.update');
         Route::delete('/internships/{internship}', [InternshipController::class, 'destroy'])->name('internships.destroy');
         Route::post('/internships/', [InternshipController::class, 'store'])->name('internships.store');
-
+        #Route::get('/culinary', [CulinaryController::class, 'showCulinary'])->name('culinary');
     });
 
     Route::prefix('cul')->name('culi.')->group(function(){
