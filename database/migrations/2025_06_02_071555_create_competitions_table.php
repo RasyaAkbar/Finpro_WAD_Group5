@@ -9,24 +9,27 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+   public function up()
     {
-        Schema::create('internship_opportunities', function (Blueprint $table) {
+        Schema::create('competitions', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('company_name');
-            $table->string('description');
-            $table->string('requirements');
-            $table->dateTime('deadline');
+            $table->text('description');
+            $table->string('category');
+            $table->string('organizer');
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->string('link')->nullable(); // optional
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('internship_opportunities');
+        Schema::dropIfExists('competitions');
     }
 };
