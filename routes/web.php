@@ -37,6 +37,16 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/internships/', [InternshipController::class, 'store'])->name('internships.store');
 
     });
+
+    Route::prefix('cul')->name('culi.')->group(function(){
+        Route::get('/culinary',[CulinaryController::class,'index'])->name('culinaryAdmin.indexCulinary');
+        Route::get('/culinary/create',[CulinaryController::class,'create'])->name('culinaryAdmin.createCulinary');
+        Route::post('/culinary',[CulinaryController::class,'store'])->name('culinaryAdmin.storeCulinary');
+        Route::get('/culinary/{culinar}/edit',[CulinaryController::class,'edit'])->name('culinaryAdmin.editCulinary');
+        Route::put('/culinary/{culinar}',[CulinaryController::class,'update'])->name('culinaryAdmin.updateCulinary');
+        Route::delete('/culinary/{culinar}',[CulinaryController::class,'destroy'])->name('culinaryAdmin.destroyCulinary');
+ 
+    });
     
     // Admin routes
     Route::prefix('admin')->name('admin.')->middleware('role:admin')->group(function () {
