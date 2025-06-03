@@ -48,7 +48,7 @@ class CulinaryController extends Controller
     }
 
     public function edit(Culinary $culinary){
-            return view('culinaryAdmin.editCulinary', compact('culinaries'));
+            return view('culinaryAdmin.editCulinary', compact('culinary'));
         }
     
     public function update(Request $request, Culinary $culinary)
@@ -64,11 +64,11 @@ class CulinaryController extends Controller
         /*if ($request->hasFile('image')) {
             if ($culinary->image) {
                 Storage::delete('public/' . $culinary->image);
-            }*/
+            }
 
             $imagePath = $request->file('image')->store('culinary','public');
             $culinaryData['image'] = $imagePath;
-        
+        */
 
         $culinary->update($culinaryData);
 

@@ -4,7 +4,7 @@
 <div class="container mx-auto p-6">
     <h1 class="text-3xl font-semibold text-gray-800 mb-6">Edit Culinary View</h1>
 
-    <form method="POST" action="{{ route('culinaryAdmin.culinaryUpdate', $culinary) }}" enctype="multipart/form-data" class="bg-white p-6 rounded-lg shadow-lg">
+    <form method="POST" action="{{ route('culinaryAdmin.updateCulinary', $culinary) }}" enctype="multipart/form-data" class="bg-white p-6 rounded-lg shadow-lg">
         @csrf
         @method('PUT')
 

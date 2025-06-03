@@ -54,6 +54,14 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('/internships/{internship}', [InternshipController::class, 'destroy'])->name('internships.destroy');
         Route::post('/internships/', [InternshipController::class, 'store'])->name('internships.store');
         #Route::get('/culinary', [CulinaryController::class, 'showCulinary'])->name('culinary');
+        Route::get('/competitions/{competition}', [CompetitionController::class, 'show'])->name('competitions.show');
+
+        Route::get('/campus-activities', [CampusActivityController::class, 'index'])->name('campus-activities');
+        Route::get('/campus-activities/create', [CampusActivityController::class, 'create'])->name('campus-activities-create');
+        Route::post('/campus-activities/store', [CampusActivityController::class, 'store'])->name('campus-activities-store');
+        Route::get('/campus-activities/{id}/edit', [CampusActivityController::class, 'edit'])->name('campus-activities-edit');
+        Route::put('/campus-activities/{id}', [CampusActivityController::class, 'update'])->name('campus-activities-update');
+        Route::delete('/campus-activities/{id}', [CampusActivityController::class, 'destroy'])->name('campus-activities-destroy');
     });
 
 
@@ -61,9 +69,9 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/culinary',[CulinaryController::class,'index'])->name('culinaryAdmin.indexCulinary');
         Route::get('/culinary/create',[CulinaryController::class,'create'])->name('culinaryAdmin.createCulinary');
         Route::post('/culinary',[CulinaryController::class,'store'])->name('culinaryAdmin.storeCulinary');
-        Route::get('/culinary/{culinar}/edit',[CulinaryController::class,'edit'])->name('culinaryAdmin.editCulinary');
-        Route::put('/culinary/{culinar}',[CulinaryController::class,'update'])->name('culinaryAdmin.updateCulinary');
-        Route::delete('/culinary/{culinar}',[CulinaryController::class,'destroy'])->name('culinaryAdmin.destroyCulinary');
+        Route::get('/culinary/{culinary}/edit',[CulinaryController::class,'edit'])->name('culinaryAdmin.editCulinary');
+        Route::put('/culinary/{culinary}',[CulinaryController::class,'update'])->name('culinaryAdmin.updateCulinary');
+        Route::delete('/culinary/{culinary}',[CulinaryController::class,'destroy'])->name('culinaryAdmin.destroyCulinary');
  
     });
     
@@ -78,14 +86,7 @@ Route::middleware(['auth'])->group(function () {
 
 
         // Show a single competition by ID
-        Route::get('/competitions/{competition}', [CompetitionController::class, 'show'])->name('competitions.show');
-
-        Route::get('/campus-activities', [CampusActivityController::class, 'index'])->name('campus-activities');
-        Route::get('/campus-activities/create', [CampusActivityController::class, 'create'])->name('campus-activities-create');
-        Route::post('/campus-activities/store', [CampusActivityController::class, 'store'])->name('campus-activities-store');
-        Route::get('/campus-activities/{id}/edit', [CampusActivityController::class, 'edit'])->name('campus-activities-edit');
-        Route::put('/campus-activities/{id}', [CampusActivityController::class, 'update'])->name('campus-activities-update');
-        Route::delete('/campus-activities/{id}', [CampusActivityController::class, 'destroy'])->name('campus-activities-destroy');
+        
     });
     Route::prefix('admin')->name('admin.')->group(function () {
             // Show the list of competitions (admin view)
