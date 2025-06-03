@@ -29,16 +29,16 @@ class CulinaryController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'detail' => 'required',
-            'image' => 'nullable|image|mimes:jpeg,jpg'
+            'content' => 'required',
+            #'image' => 'nullable|image|mimes:jpeg,jpg'
         ]);
 
-        $culinaryData = $request->only('image','title','detail');
+        $culinaryData = $request->only('title','content','image');
 
-        if ($request->hasfile('image')) {
+        /*if ($request->hasfile('image')) {
             $imagePath = $request->file('image')->store('culinaries','public');
             $culinaryData['image'] = $imagePath;
-        }
+        }*/
 
         Culinary::create($culinaryData);
 
@@ -55,11 +55,11 @@ class CulinaryController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'detail'=> 'required',
+            'content'=> 'required',
             'image' => 'nullable|image|mimes:jpeg,jpg'
         ]);
 
-        $culinaryData = $request->only('image','title','detail');
+        $culinaryData = $request->only('title','content','image');
 
         if ($request->hasFile('image')) {
             if ($culinary->image) {

@@ -14,8 +14,8 @@
         </div>
 
         <div class="mb-4">
-            <label for="content" class="block text-gray-700 text-sm font-medium mb-2">Culinary Details</label>
-            <textarea name="content" id="content" placeholder="Input Culinary Details" rows="6" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>{{ $culinary->content }}</textarea>
+            <label for="content" class="block text-gray-700 text-sm font-medium mb-2">Culinary Content</label>
+            <textarea name="content" id="content" placeholder="Input Culinary Contents" rows="6" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>{{ $culinary->content }}</textarea>
         </div>
 
         <div class="mb-4">

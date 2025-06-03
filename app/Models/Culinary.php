@@ -9,7 +9,7 @@ class Culinary extends Model
 
     protected $table = 'culinaries';
 
-    protected $fillable = ['image','title','detail'];
+    protected $fillable = ['title','content','image'];
 
     
     public function culinary()

@@ -12,8 +12,8 @@
         </div>
 
         <div class="mb-4">
-            <label for="content" class="block text-gray-700 text-sm font-medium mb-2">Culinary Detail</label>
-            <textarea name="content" id="content" placeholder="Input Culinary Detail" rows="6" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+            <label for="content" class="block text-gray-700 text-sm font-medium mb-2">Culinary Content</label>
+            <textarea name="content" id="content" placeholder="Input Culinary Content" rows="6" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
         </div>
 
          <div class="mb-6">
