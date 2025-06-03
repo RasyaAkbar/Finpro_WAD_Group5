@@ -68,7 +68,7 @@ class CulinaryController extends Controller
 
             $imagePath = $request->file('image')->store('culinary','public');
             $culinaryData['image'] = $imagePath;
-        }
+        
 
         $culinary->update($culinaryData);
 
