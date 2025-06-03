@@ -7,7 +7,10 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Internship\InternshipController;
 
 use App\Http\Controllers\Student\ScholarshipController;
+
+use App\Http\Controllers\competition\CompetitionController;
 use App\Http\Controllers\CampusActivityController;
+
 
 
 Route::get('/', function () {
@@ -26,6 +29,15 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
+
+    // Show all competitions
+    Route::get('/competitions', [CompetitionController::class, 'index'])->name('competitions.index');
+
+    // Show the form to create a new competition
+    Route::get('/competitions/create', [CompetitionController::class, 'create'])->name('competition.create');
+
+    // Show a single competition by ID
+    Route::get('/competitions/{competition}', [CompetitionController::class, 'show'])->name('competitions.show');
 
     // Student routes
     Route::prefix('student')->name('student.')->group(function () {
@@ -51,7 +63,18 @@ Route::middleware(['auth'])->group(function () {
     
     // Admin routes
     Route::prefix('admin')->name('admin.')->middleware('role:admin')->group(function () {
+
+    // Competitions routes
+        // Show the list of competitions (admin view)
+        Route::get('/competitions', [CompetitionController::class, 'index'])->name('competitions.index');
+        Route::get('/competitions/{competition}/edit', [CompetitionController::class, 'edit'])->name('competitions.edit');
+        Route::put('/competitions/{competition}', [CompetitionController::class, 'update'])->name('competitions.update');
+        Route::delete('/competitions/{competition}', [CompetitionController::class, 'destroy'])->name('competitions.destroy');
+        Route::get('/competitions/{competition}', [CompetitionController::class, 'show'])->name('competitions.show');
+        Route::post('/competitions', [CompetitionController::class, 'store'])->name('competitions.store');
+
   
+
     });
     
     // Logout
