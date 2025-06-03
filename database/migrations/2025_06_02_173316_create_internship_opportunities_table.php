@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('internship_opportunities', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('company_name');
+            $table->string('description');
+            $table->string('requirements');
+            $table->dateTime('deadline');
             $table->timestamps();
         });
     }
