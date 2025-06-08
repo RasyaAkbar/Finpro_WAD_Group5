@@ -128,13 +128,7 @@
                     </div>
                 </form>
 
-                <!-- Divider -->
-                <div class="flex items-center my-8">
-                    <div class="flex-1 border-t border-gray-300"></div>
-                    <span class="px-4 text-gray-500 text-sm">or</span>
-                    <div class="flex-1 border-t border-gray-300"></div>
-                </div>
-
+        
                 <!-- Navigation Links -->
                 <div class="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm">
                     
@@ -176,15 +170,7 @@
                 alert('Please set a deadline that is in the future.');
                 return;
             }
-            
-            // For demo purposes - show success message
-            // In real implementation, this would be handled by Laravel
-            setTimeout(() => {
-                document.getElementById('successMessage').classList.remove('hidden');
-                setTimeout(() => {
-                    document.getElementById('successMessage').classList.add('hidden');
-                }, 3000);
-            }, 100);
+
         });
 
         

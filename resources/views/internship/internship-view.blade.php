@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <!-- Hero Section -->
+    
     <section class="pt-24 pb-12 px-6">
         <div class="max-w-7xl mx-auto text-center">
             <div class="mt-8 mb-8">
