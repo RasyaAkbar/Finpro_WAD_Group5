@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\ScholarshipApiController;
 use App\Http\Controllers\Api\APICampusActivityController;
 use App\Http\Controllers\Api\APIInternshipController;
 use App\Http\Controllers\Api\APICulinaryController;
@@ -23,4 +24,7 @@ Route::post('/culinary',[APICulinaryController::class,'store']);
 Route::get('/culinary/{culinary}',[APICulinaryController::class,'show']);
 Route::put('/culinary/{culinary}',[APICulinaryController::class,'update']);
 Route::delete('/culinary/{culinary}',[APICulinaryController::class,'destroy']);
- 
+
+Route::get('/scholarships', [ScholarshipApiController::class, 'index']);
+Route::get('/scholarships/{id}', [ScholarshipApiController::class, 'show']);
+Route::get('/campusactivities', [APICampusActivityController::class, 'indexapi']);
