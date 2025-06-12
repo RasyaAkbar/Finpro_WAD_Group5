@@ -84,7 +84,7 @@
                     </div>
                     <h3 class="text-lg font-semibold text-blue-700 mb-3">Local Culinary</h3>
                     <p class="text-gray-600 text-sm mb-4">Discover local restaurants, cafes, and dining options around your campus area.</p>
-                    <a href="#" class="text-red-600 font-semibold hover:text-red-700 text-sm transition-colors">Discover →</a>
+                    <a href="{{ route('culinaryAdmin.indexCulinary') }}" class="text-red-600 font-semibold hover:text-red-700 text-sm transition-colors">Discover →</a>
                 </div>
 
                 <!-- Competition Information -->
@@ -96,7 +96,7 @@
                     </div>
                     <h3 class="text-lg font-semibold text-blue-700 mb-3">Competition Information</h3>
                     <p class="text-gray-600 text-sm mb-4">Participate in academic competitions and showcase your skills on various platforms.</p>
-                    <a href="{{ route('competitions.index') }}"class="text-yellow-600 font-semibold hover:text-yellow-700 text-sm transition-colors">Compete →</a>
+                    <a href="{{ route('admin.competitions.index') }}"class="text-yellow-600 font-semibold hover:text-yellow-700 text-sm transition-colors">Compete →</a>
                 </div>
                 
                 

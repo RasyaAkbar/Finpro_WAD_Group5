@@ -40,9 +40,7 @@
                     <i class="fas fa-calendar-alt mr-1"></i>
                     Due: {{ $deadline->format('F j, Y') }}
                 </div>
-                <div class="text-gray-400 text-xs mt-1">
-                    {{ $deadline->format('l, g:i A') }}
-                </div>
+
             </div>
             
             {{-- Description Section --}}

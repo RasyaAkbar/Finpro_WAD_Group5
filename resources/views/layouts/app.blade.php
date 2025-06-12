@@ -64,16 +64,7 @@
             </div>
         </div>
         
-        <!-- Mobile Menu -->
-        <div id="mobileMenu" class="md:hidden hidden mt-4 pb-4">
-            <div class="flex flex-col space-y-3">
-                <a href="{{ route('home') }}" class="text-gray-700 hover:text-blue-600 transition-colors">Home</a>
-                <a href="#" class="text-gray-700 font-semibold">Internships</a>
-                <a href="#" class="text-gray-700 hover:text-blue-600  transition-colors">Scholarships</a>
-                <a href="#" class="text-gray-700 hover:text-blue-600  transition-colors">Activities</a>
-                <a href="#" class="text-gray-700 hover:text-blue-600  transition-colors">Competitions</a>
-            </div>
-        </div>
+        
     </nav>
     
     <div class="">

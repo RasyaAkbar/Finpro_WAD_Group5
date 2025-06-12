@@ -10,9 +10,11 @@ use App\Http\Controllers\HomeController;
 
 // Home page
 use App\Http\Controllers\Student\ScholarshipController;
+use App\Http\Controllers\Culinary\CulinaryController;
 
 use App\Http\Controllers\competition\CompetitionController;
 use App\Http\Controllers\CampusActivityController;
+
 
 
 
@@ -21,17 +23,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-// Dashboard
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
-// Authenticated user profile
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
 
 // Authentication routes
 Route::middleware('guest')->group(function () {
@@ -42,29 +34,13 @@ Route::middleware('guest')->group(function () {
 });
 
 
-// Student routes (authenticated)
-Route::middleware(['auth'])->prefix('student')->name('student.')->group(function () {
-    Route::get('/campus-activities', [DashboardController::class, 'campusActivities'])->name('campus-activities');
-    Route::get('/internships', [InternshipController::class, 'showInternshipPage'])->name('internships');
-    Route::get('/local-culinary', [DashboardController::class, 'localCulinary'])->name('local-culinary');
-    Route::get('/competitions', [DashboardController::class, 'competitions'])->name('competitions');
-    Route::get('/search', [DashboardController::class, 'search'])->name('search');
-});
 
 // Admin-only routes
-Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
 
 
 Route::middleware(['auth'])->group(function () {
 
-    // Show all competitions
-    Route::get('/competitions', [CompetitionController::class, 'index'])->name('competitions.index');
-
-    // Show the form to create a new competition
-    Route::get('/competitions/create', [CompetitionController::class, 'create'])->name('competition.create');
-
-    // Show a single competition by ID
-    Route::get('/competitions/{competition}', [CompetitionController::class, 'show'])->name('competitions.show');
+        
 
     // Student routes
     Route::prefix('student')->name('student.')->group(function () {
@@ -77,8 +53,8 @@ Route::middleware(['auth'])->group(function () {
         Route::put('/internships/{internship}/edit', [InternshipController::class, 'update'])->name('internships.update');
         Route::delete('/internships/{internship}', [InternshipController::class, 'destroy'])->name('internships.destroy');
         Route::post('/internships/', [InternshipController::class, 'store'])->name('internships.store');
-
-
+        #Route::get('/culinary', [CulinaryController::class, 'showCulinary'])->name('culinary');
+        Route::get('/competitions/{competition}', [CompetitionController::class, 'show'])->name('competitions.show');
 
         Route::get('/campus-activities', [CampusActivityController::class, 'index'])->name('campus-activities');
         Route::get('/campus-activities/create', [CampusActivityController::class, 'create'])->name('campus-activities-create');
@@ -88,39 +64,60 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('/campus-activities/{id}', [CampusActivityController::class, 'destroy'])->name('campus-activities-destroy');
     });
 
-    
-    // Full CRUD for scholarships (admin only)
-    Route::resource('scholarships', ScholarshipInformationController::class)->except(['index', 'show']);
-});
 
-
-// Public scholarship routes (accessible to all)
-Route::resource('scholarships', ScholarshipInformationController::class)->only(['index', 'show']);
-
-// Logout
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-
-    // Competitions routes
-        // Show the list of competitions (admin view)
-        Route::get('/competitions', [CompetitionController::class, 'index'])->name('competitions.index');
-        Route::get('/competitions/{competition}/edit', [CompetitionController::class, 'edit'])->name('competitions.edit');
-        Route::put('/competitions/{competition}', [CompetitionController::class, 'update'])->name('competitions.update');
-        Route::delete('/competitions/{competition}', [CompetitionController::class, 'destroy'])->name('competitions.destroy');
-        Route::get('/competitions/{competition}', [CompetitionController::class, 'show'])->name('competitions.show');
-        Route::post('/competitions', [CompetitionController::class, 'store'])->name('competitions.store');
-
-  
-
+    Route::prefix('cul')->group(function(){
+        Route::get('/culinary',[CulinaryController::class,'index'])->name('culinaryAdmin.indexCulinary');
+        Route::get('/culinary/create',[CulinaryController::class,'create'])->name('culinaryAdmin.createCulinary');
+        Route::post('/culinary',[CulinaryController::class,'store'])->name('culinaryAdmin.storeCulinary');
+        Route::get('/culinary/{culinary}/edit',[CulinaryController::class,'edit'])->name('culinaryAdmin.editCulinary');
+        Route::put('/culinary/{culinary}',[CulinaryController::class,'update'])->name('culinaryAdmin.updateCulinary');
+        Route::delete('/culinary/{culinary}',[CulinaryController::class,'destroy'])->name('culinaryAdmin.destroyCulinary');
+ 
     });
     
+    // Admin routes
+    Route::prefix('admin')->name('admin.')->middleware('role:admin')->group(function () {
+
+        // Show all competitions
+        Route::get('/competitions', [CompetitionController::class, 'index'])->name('competitions.index');
+
+        // Show the form to create a new competition
+        
+
+
+        // Show a single competition by ID
+        
+    });
+    Route::prefix('admin')->name('admin.')->group(function () {
+            // Show the list of competitions (admin view)
+            Route::get('/competitions', [CompetitionController::class, 'index'])->name('competitions.index');
+            Route::get('/competitions/{competition}/edit', [CompetitionController::class, 'edit'])->name('competitions.edit');
+            Route::put('/competitions/{competition}', [CompetitionController::class, 'update'])->name('competitions.update');
+            Route::delete('/competitions/{competition}', [CompetitionController::class, 'destroy'])->name('competitions.destroy');
+            Route::get('/competitions/{competition}', [CompetitionController::class, 'show'])->name('competitions.show');
+            Route::post('/competitions', [CompetitionController::class, 'store'])->name('competitions.store');
+            
+            // Full CRUD for scholarships (admin only)
+            Route::resource('scholarships', ScholarshipInformationController::class)->except(['index', 'show']);
+    });
+    Route::get('/competitions/create', [CompetitionController::class, 'create'])->name('competition.create');
+
+    // Public scholarship routes (accessible to all)
+    Route::resource('scholarships', ScholarshipInformationController::class)->only(['index', 'show']);
+
     // Logout
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+        
 });
+    
+
+
 
 // API routes for search functionality
 Route::middleware('auth:sanctum')->prefix('api')->group(function () {
     
-  Route::get('/campus-activities', [CampusActivityController::class, 'apiIndex']);
+    Route::get('/campus-activities', [CampusActivityController::class, 'apiIndex']);
     Route::post('/campus-activities', [CampusActivityController::class, 'apiStore']);
     Route::get('/campus-activities/{id}', [CampusActivityController::class, 'apiShow']);
     Route::put('/campus-activities/{id}', [CampusActivityController::class, 'apiUpdate']);

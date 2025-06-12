@@ -9,7 +9,7 @@ class CampusActivity extends Model
 {
     use HasFactory;
 
-    // Specify the table name if it doesn't follow Laravel's naming convention
+    
     protected $table = 'campus_activities';
 
     // Define which fields are mass assignable (can be set using create() or update())
