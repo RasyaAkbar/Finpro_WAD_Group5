@@ -46,7 +46,7 @@ class APICulinaryController extends Controller
             return response()->json(['message' => 'Culinary not found'], 404);
         }
 
-        return new APIResource(true, 'Internship Details!', $culinary);
+        return new APIResource(true, 'Culinary Details!', $culinary);
     }
 
     public function update(Request $request, $id)
@@ -71,12 +71,12 @@ class APICulinaryController extends Controller
         $culinary->update($request->all());
 
         
-        return new APIResource(true, 'Internship Data Successfully Updated!', $culinary);
+        return new APIResource(true, 'Culinary Data Successfully Updated!', $culinary);
     }
 
     public function destroy($id)
     {
-        $culinary = Internship::find($id);
+        $culinary = Culinary::find($id);
 
         if (!$culinary) {
             return response()->json(['message' => 'Culinary not found'], 404);
