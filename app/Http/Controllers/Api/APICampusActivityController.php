@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\CampusActivity;
-use App\Http\Resources\CampusActivityResource;
+use App\Http\Resources\APIResource;
 
 class APICampusActivityController extends Controller
 {
@@ -13,6 +13,6 @@ class APICampusActivityController extends Controller
     {
         $activities = CampusActivity::latest()->paginate(5); 
 
-        return new CampusActivityResource(true, 'Campus activities retrieved successfully', $activities);
+        return new APIResource(true, 'Campus activities retrieved successfully', $activities);
     }
 }

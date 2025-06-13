@@ -12,7 +12,7 @@
         <p class="mb-4 text-gray-700"><strong>End Date:</strong> {{ $competition->end_date}}</p>
         <p class="mb-4 text-gray-700"><strong>Registration Link:</strong> {{ $competition->link}}</p>
 
-        <a href="{{ route('competitions.index') }}" class="inline-block bg-gray-100 hover:bg-gray-200 text-gray-800 px-4 py-2 rounded shadow">
+        <a href="{{ route('admin.competitions.index') }}" class="inline-block bg-gray-100 hover:bg-gray-200 text-gray-800 px-4 py-2 rounded shadow">
             ← Back to List
         </a>
     </div>
