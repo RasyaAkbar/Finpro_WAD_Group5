@@ -17,8 +17,6 @@ class APIInternshipController extends Controller
 {
     public function index()
     {
-
-
         $internships = Internship::all();
         return new APIResource(true, 'List of Internship Data', $internships);
     }
@@ -30,28 +28,22 @@ class APIInternshipController extends Controller
             'company_name' => 'required',
             'description' => 'required',
             'requirements' => 'required',
-            'deadline' => 'required',
+            'deadline' => 'required|after:today',
         ]);
 
-        
         if ($validator->fails()) {
             return response()->json($validator->errors(), 422);
         }
-
         $internships = Internship::create($request->all());
-
         return new APIResource(true, 'Internship Data Successfully Added!', $internships);
     }
 
     public function show($id)
     {
-
         $internship = Internship::find($id);
-
         if (!$internship) {
             return response()->json(['message' => 'Internship not found'], 404);
         }
-
         return new APIResource(true, 'Internship Details!', $internship);
     }
 
@@ -59,17 +51,15 @@ class APIInternshipController extends Controller
     {
         $internship = Internship::find($id);
 
-        
         if (!$internship) {
             return response()->json(['message' => 'Internship not found'], 404);
         }
-
         $validator = Validator::make($request->all(), [
-            'title' => 'sometimes|required',
-            'company_name' => 'sometimes|required',
-            'description' => 'sometimes|required',
-            'requirements' => 'sometimes|required',
-            'deadline' => 'sometimes|required',
+            'title' => 'sometimes',
+            'company_name' => 'sometimes',
+            'description' => 'sometimes',
+            'requirements' => 'sometimes',
+            'deadline' => 'sometimes|after:today',
         ]);
 
         
@@ -79,7 +69,6 @@ class APIInternshipController extends Controller
 
         $internship->update($request->all());
 
-        
         return new APIResource(true, 'Internship Data Successfully Updated!', $internship);
     }
 
@@ -90,8 +79,6 @@ class APIInternshipController extends Controller
         if (!$internships) {
             return response()->json(['message' => 'Internship not found'], 404);
         }
-
-        
         $internships->delete();
 
         return new APIResource(true, 'Internship Data Successfully Deleted!', null);

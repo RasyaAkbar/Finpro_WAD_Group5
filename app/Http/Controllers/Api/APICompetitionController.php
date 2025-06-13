@@ -61,12 +61,12 @@ class APICompetitionController extends Controller
         }
 
         $validator = Validator::make($request->all(), [
-            'title' => 'required',
-            'description' => 'required',
+            'title' => 'sometimes',
+            'description' => 'sometimes',
             'category' => 'nullable|string',
             'organizer' => 'nullable|string|max:255',
-            'start_date' => 'required|date',
-            'end_date' => 'required|date|after_or_equal:start_date',
+            'start_date' => 'sometimes|date',
+            'end_date' => 'sometimes|date|after_or_equal:start_date',
             'link' => 'nullable|url'
         ]);
 

@@ -40,7 +40,7 @@ class InternshipController extends Controller
             'company_name' => 'required',
             'description' => 'required',
             'requirements' => 'required',
-            'deadline' => 'required',
+            'deadline' => 'required|after:today',
         ]);
 
         Internship::create($request->all());
@@ -55,7 +55,7 @@ class InternshipController extends Controller
             'company_name' => 'required',
             'description' => 'required',
             'requirements' => 'required',
-            'deadline' => 'required',
+            'deadline' => 'required|after:today',
         ]);
 
         $internship->update($request->all());
