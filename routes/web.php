@@ -73,8 +73,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/competitions/{competition}', [CompetitionController::class, 'show'])->name('competitions.show');
         Route::post('/competitions', [CompetitionController::class, 'store'])->name('competitions.store');
 
-  
 
+        
     });
     
     // Logout
