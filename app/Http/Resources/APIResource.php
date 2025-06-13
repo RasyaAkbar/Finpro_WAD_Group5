@@ -33,3 +33,4 @@ class APIResource extends JsonResource
         ];
     }
 }
+

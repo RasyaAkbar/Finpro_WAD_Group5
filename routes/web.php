@@ -78,14 +78,10 @@ Route::middleware(['auth'])->group(function () {
     // Admin routes
     Route::prefix('admin')->name('admin.')->middleware('role:admin')->group(function () {
 
-        // Show all competitions
+
         Route::get('/competitions', [CompetitionController::class, 'index'])->name('competitions.index');
 
-        // Show the form to create a new competition
-        
 
-
-        // Show a single competition by ID
         
     });
     Route::prefix('admin')->name('admin.')->group(function () {
