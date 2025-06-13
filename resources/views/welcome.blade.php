@@ -38,7 +38,7 @@
                 </p>
             </div>
 
-            <div class="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-sm:gap-8">
                 <!-- Scholarship Information -->
                 <div class="bg-white border border-gray-200 rounded-xl shadow hover:shadow-md transition-all p-6">
                     <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
@@ -60,7 +60,7 @@
                     </div>
                     <h3 class="text-lg font-semibold text-blue-700 mb-3">Campus Activities</h3>
                     <p class="text-gray-600 text-sm mb-4">Stay updated with campus events, clubs, and activities to enrich your student experience.</p>
-                    <a href="#" class="text-green-600 font-semibold hover:text-green-700 text-sm transition-colors">Explore →</a>
+                    <a href="{{ route('student.campus-activities') }}" class="text-green-600 font-semibold hover:text-green-700 text-sm transition-colors">Explore →</a>
                 </div>
 
                 <!-- Internship Opportunities -->
@@ -74,7 +74,7 @@
                     <p class="text-gray-600 text-sm mb-4">Find internships that align with your career goals and gain valuable work experience.</p>
                     <a href="{{ route('student.internships')}}" class="text-purple-600 font-semibold hover:text-purple-700 text-sm transition-colors">Apply Now →</a>
                 </div>
-
+                
                 <!-- Local Culinary -->
                 <div class="bg-white border border-gray-200 rounded-xl shadow hover:shadow-md transition-all p-6">
                     <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
@@ -98,38 +98,11 @@
                     <p class="text-gray-600 text-sm mb-4">Participate in academic competitions and showcase your skills on various platforms.</p>
                     <a href="{{ route('competitions.index') }}"class="text-yellow-600 font-semibold hover:text-yellow-700 text-sm transition-colors">Compete →</a>
                 </div>
-
-                <!-- Search & Filter -->
-                <div class="bg-white border border-gray-200 rounded-xl shadow hover:shadow-md transition-all p-6">
-                    <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-lg font-semibold text-blue-700 mb-3">Smart Search</h3>
-                    <p class="text-gray-600 text-sm mb-4">Find exactly what you need with our powerful search and filtering capabilities.</p>
-                    <a href="#" class="text-indigo-600 font-semibold hover:text-indigo-700 text-sm transition-colors">Search →</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="pt-16 pb-10 px-4">
-        <div class="max-w-4xl mx-auto text-center">
-            <div class="bg-white border border-gray-200 rounded-xl shadow p-8">
-                <h2 class="text-3xl font-bold text-blue-800 mb-4">Ready to Transform Your Academic Journey?</h2>
-                <p class="text-gray-600 mb-8">Join thousands of students who are already using inTel-U to achieve their goals.</p>
                 
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold shadow transition-colors">
-                        Sign Up Free
-                    </a>
-                    <a href="#" class="bg-white border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors">
-                        Login Now
-                    </a>
-                </div>
+                
             </div>
         </div>
     </section>
+
+    
 @endsection

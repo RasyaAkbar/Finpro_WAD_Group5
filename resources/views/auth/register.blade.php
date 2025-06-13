@@ -232,32 +232,7 @@
             
             strengthText.textContent = feedback;
         }
-        // Handle user type selection
-        document.addEventListener('DOMContentLoaded', function() {
-            const userTypeRadios = document.querySelectorAll('input[name="user_type"]');
-            const studentIdField = document.getElementById('studentIdField');
-            const studentIdInput = document.getElementById('student_id');
-            
-            function toggleStudentFields() {
-                const selectedType = document.querySelector('input[name="user_type"]:checked').value;
-                
-                if (selectedType === 'student') {
-                    studentIdField.style.display = 'block';
-                    studentIdInput.required = true;
-                } else {
-                    studentIdField.style.display = 'none';
-                    studentIdInput.required = false;
-                    studentIdInput.value = '';
-                }
-            }
-            
-            userTypeRadios.forEach(radio => {
-                radio.addEventListener('change', toggleStudentFields);
-            });
-            
-            // Initial call
-            toggleStudentFields();
-        });
+        
         // Form validation feedback
         document.addEventListener('DOMContentLoaded', function() {
             const form = document.querySelector('form');
@@ -273,17 +248,7 @@
                 });
             });
             
-            // Password confirmation validation
-            const password = document.getElementById('password');
-            const confirmPassword = document.getElementById('password_confirmation');
             
-            confirmPassword.addEventListener('blur', function() {
-                if (this.value !== password.value && this.value !== '') {
-                    this.classList.add('ring-2', 'ring-red-400', 'ring-opacity-50');
-                } else {
-                    this.classList.remove('ring-2', 'ring-red-400', 'ring-opacity-50');
-                }
-            });
         });
     </script>
 </body>
